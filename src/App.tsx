@@ -1,6 +1,13 @@
+import { Button } from "./components/Button";
+
 function App() {
   return (
-      <h1>Hello Word</h1>
+      <div>
+          <Button text='btn1'/>
+          <Button />
+          <Button />
+          <Button />
+      </div>
   );
 }
 
