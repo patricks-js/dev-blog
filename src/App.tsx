@@ -1,13 +1,13 @@
-import { Button } from "./components/Button";
+import Home from "./Pages/Home";
+import ReactRoutes from "./store/Routes";
+import GlobalStyle from "./styles/global";
 
 function App() {
   return (
-      <div>
-          <Button />
-          <Button />
-          <Button />
-          <Button />
-      </div>
+    <>
+      <GlobalStyle />
+      <ReactRoutes />
+    </>
   );
 }
 
