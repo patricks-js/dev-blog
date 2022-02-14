@@ -1,4 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
+import { firebase, auth, database } from "../../services/firebase";
+
 import illustrationImg from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
 import logoGoogle from "../../assets/images/google-icon.svg";
@@ -6,14 +9,18 @@ import logoGoogle from "../../assets/images/google-icon.svg";
 import { Container, Division, MainContent } from "./styles";
 import { Button } from "../../components/Button";
 
-
 const Home = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate()
+  function handleCreateRoom() {
+    const provider = new firebase.auth.GoogleAuthProvider();
 
-    function navigateToNewRoom() {
-        navigate('/nova-sala')
-    }
+    auth.signInWithPopup(provider).then((result) => {
+      console.log(result);
+
+      navigate("/nova-sala");
+    });
+  }
 
   return (
     <Container>
@@ -25,16 +32,14 @@ const Home = () => {
       <main>
         <MainContent>
           <img src={logoImg} alt="devBlog" />
-          <button onClick={navigateToNewRoom}>
-                <img src={logoGoogle} alt="logo google" />
-                Crie sua sala com o Google
-          </button> 
-            <Division>ou entre em uma sala</Division>
+          <button onClick={handleCreateRoom}>
+            <img src={logoGoogle} alt="logo google" />
+            Crie sua sala com o Google
+          </button>
+          <Division>ou entre em uma sala</Division>
           <form action="">
             <input type="text" placeholder="Digite o código da sala" />
-            <Button type="submit">
-                Entrar na sala
-            </Button>
+            <Button type="submit">Entrar na sala</Button>
           </form>
         </MainContent>
       </main>
