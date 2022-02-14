@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import illustrationImg from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
 import logoGoogle from "../../assets/images/google-icon.svg";
@@ -7,6 +8,13 @@ import { Button } from "../../components/Button";
 
 
 const Home = () => {
+
+    const navigate = useNavigate()
+
+    function navigateToNewRoom() {
+        navigate('/nova-sala')
+    }
+
   return (
     <Container>
       <aside>
@@ -17,9 +25,9 @@ const Home = () => {
       <main>
         <MainContent>
           <img src={logoImg} alt="devBlog" />
-          <button>
-            <img src={logoGoogle} alt="logo google" />
-            Crie sua sala com o Google
+          <button onClick={navigateToNewRoom}>
+                <img src={logoGoogle} alt="logo google" />
+                Crie sua sala com o Google
           </button> 
             <Division>ou entre em uma sala</Division>
           <form action="">
