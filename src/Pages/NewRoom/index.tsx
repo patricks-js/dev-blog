@@ -3,9 +3,10 @@ import logoImg from "../../assets/images/logo.svg";
 
 import { Container, Division, MainContent } from "./styles";
 import { Button } from "../../components/Button";
+import { Link } from "react-router-dom";
 
 
-const Home = () => {
+const NewRoom = () => {
   return (
     <Container>
       <aside>
@@ -24,11 +25,11 @@ const Home = () => {
                 Criar sala
             </Button>
           </form>
-          <p>Deseja entrar em uma sala existente? <a href="#">Clique aqui</a></p>
+          <p>Deseja entrar em uma sala existente? <Link to='/'>Clique aqui</Link></p>
         </MainContent>
       </main>
     </Container>
   );
 };
 
-export default Home;
+export default NewRoom;

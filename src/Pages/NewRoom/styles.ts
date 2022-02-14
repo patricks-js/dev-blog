@@ -56,6 +56,12 @@ export const MainContent = styled.div`
         align-self: center;
     }
 
+    h2 {
+        font-size: 24px;
+        margin: 64px 0 24px;
+        font-family: var(--fontPoppins);
+    }
+
     > img + button {
         margin-top: 64px;
         height: 50px;
@@ -97,6 +103,16 @@ export const MainContent = styled.div`
 
         button, input {
             width: 100%;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        color: #737380;
+        margin-top: 16px;
+
+        a {
+            color: #e559f9;
         }
     }
 `

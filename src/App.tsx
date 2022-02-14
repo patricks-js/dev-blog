@@ -1,12 +1,11 @@
-import Home from "./Pages/Home";
-import ReactRoutes from "./store/Routes";
+import Routes from "./Routes";
 import GlobalStyle from "./styles/global";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <ReactRoutes />
+    <Routes/>
     </>
   );
 }
