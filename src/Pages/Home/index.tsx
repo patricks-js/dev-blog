@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-import { firebase, auth, database } from "../../services/firebase";
 
 import illustrationImg from "../../assets/images/illustration.svg";
 import logoImg from "../../assets/images/logo.svg";
@@ -8,18 +7,20 @@ import logoGoogle from "../../assets/images/google-icon.svg";
 
 import { Container, Division, MainContent } from "./styles";
 import { Button } from "../../components/Button";
+import { useAuth } from "../../hooks/useAuth";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  function handleCreateRoom() {
-    const provider = new firebase.auth.GoogleAuthProvider();
+  const { signInWithGoogle, user } = useAuth()
 
-    auth.signInWithPopup(provider).then((result) => {
-      console.log(result);
+  async function handleCreateRoom() {
 
-      navigate("/nova-sala");
-    });
+    if (!user) {
+        await signInWithGoogle()
+    }
+
+    navigate("/nova-sala");
   }
 
   return (

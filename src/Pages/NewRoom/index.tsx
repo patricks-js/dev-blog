@@ -4,9 +4,15 @@ import logoImg from "../../assets/images/logo.svg";
 import { Container, Division, MainContent } from "./styles";
 import { Button } from "../../components/Button";
 import { Link } from "react-router-dom";
-
+// import { useAuth } from "../../hooks/useAuth";
+// import { AuthContext } from "../../context/AuthContext";
+// import { useContext } from "react";
 
 const NewRoom = () => {
+
+//   const { user } = useAuth()
+
+
   return (
     <Container>
       <aside>
@@ -17,15 +23,15 @@ const NewRoom = () => {
       <main>
         <MainContent>
           <img src={logoImg} alt="devBlog" />
-            <h2>Criar uma nova sala</h2>
-            <Division>ou entre em uma sala</Division>
+          <h2>Criar uma nova sala</h2>
+          <Division>ou entre em uma sala</Division>
           <form action="">
             <input type="text" placeholder="Nome da sala" />
-            <Button type="submit">
-                Criar sala
-            </Button>
+            <Button type="submit">Criar sala</Button>
           </form>
-          <p>Deseja entrar em uma sala existente? <Link to='/'>Clique aqui</Link></p>
+          <p>
+            Deseja entrar em uma sala existente? <Link to="/">Clique aqui</Link>
+          </p>
         </MainContent>
       </main>
     </Container>
